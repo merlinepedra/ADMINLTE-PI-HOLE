@@ -268,7 +268,7 @@ function formatInfo(data) {
     if (data.reply.time >= 0 && data.reply.type !== "UNKNOWN") {
       replyInfo +=
         '</td></tr><tr class="dataTables-child"><td>Reply delay:</td><td>' +
-        (1000 * data.reply.time).toFixed(data.reply.time < 0.002 ? 3 : 1) +
+        (data.reply.time).toFixed(data.reply.time < 2 ? 3 : 1) +
         "ms";
     }
   } else {
