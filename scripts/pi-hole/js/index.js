@@ -794,6 +794,18 @@ function updateSummaryData(runOnce) {
       updateTopLists();
     }
 
+    // Allowed queries (not currently sent by FTL)
+    data.queries_allowed_today = data.dns_queries_today - data.ads_blocked_today;
+
+    // Set class for the last box depending on domains count
+    if (data.domains_being_blocked >= 10000000) {
+      $("#domains_being_blocked").removeClass().addClass("toomanydomains");
+    } else if (data.domains_being_blocked >= 1000000) {
+      $("#domains_being_blocked").removeClass().addClass("manydomains");
+    } else {
+      $("#domains_being_blocked").removeClass();
+    }
+
     var formatter = new Intl.NumberFormat();
     //Element name might have a different name to the property of the API so we split it at |
     [
@@ -802,6 +814,7 @@ function updateSummaryData(runOnce) {
       "ads_percentage_today|percentage_blocked_today",
       "unique_clients",
       "domains_being_blocked",
+      "queries_allowed_today",
     ].forEach(function (arrayItem, idx) {
       var apiElName = arrayItem.split("|");
       var apiName = apiElName[0];

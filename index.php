@@ -17,57 +17,95 @@ require_once 'scripts/pi-hole/php/gravity.php';
 <span class="graphs-grid"></span>
 <span class="graphs-ticks"></span>
 <!-- Small boxes (Stat box) -->
-<div class="row">
-    <div class="col-lg-3 col-sm-6">
+<div class="row boxes">
+    <div class="col-lg-2 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-green no-user-select" id="total_queries" title="only A + AAAA queries">
-            <div class="inner">
-                <p>Total queries (<span id="unique_clients">-</span> clients)</p>
-                <h3 class="statistic"><span id="dns_queries_today">---</span></h3>
+        <a href="queries.php?all">
+            <div class="small-box bg-blue no-user-select" id="total_queries" title="only A + AAAA queries">
+                <div class="inner">
+                    <p>Total queries</p>
+                    <h3 class="statistic"><span id="dns_queries_today">---</span></h3>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
             </div>
-            <div class="icon">
-                <i class="fas fa-globe-americas"></i>
-            </div>
-        </div>
+        </a>
     </div>
     <!-- ./col -->
-    <div class="col-lg-3 col-sm-6">
+    <div class="col-lg-2 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-aqua no-user-select">
-            <div class="inner">
-                <p>Queries Blocked</p>
-                <h3 class="statistic"><span id="queries_blocked_today">---</span></h3>
+        <a href="queries.php?permittedonly">
+            <div class="small-box bg-green no-user-select">
+                <div class="inner">
+                    <p>Allowed Queries</p>
+                    <h3 class="statistic"><span id="queries_allowed_today">---</span></h3>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-thumbs-up"></i>
+                </div>
             </div>
-            <div class="icon">
-                <i class="fas fa-hand-paper"></i>
-            </div>
-        </div>
+        </a>
     </div>
     <!-- ./col -->
-    <div class="col-lg-3 col-sm-6">
+    <div class="col-lg-2 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-yellow no-user-select">
-            <div class="inner">
-                <p>Percentage Blocked</p>
-                <h3 class="statistic"><span id="percentage_blocked_today">---</span></h3>
+        <a href="queries.php?blockedonly">
+            <div class="small-box bg-red no-user-select">
+                <div class="inner">
+                    <p>Blocked Queries</p>
+                    <h3 class="statistic"><span id="queries_blocked_today">---</span></h3>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-ban"></i>
+                </div>
             </div>
-            <div class="icon">
-                <i class="fas fa-chart-pie"></i>
-            </div>
-        </div>
+        </a>
     </div>
     <!-- ./col -->
-    <div class="col-lg-3 col-sm-6">
+    <div class="col-lg-2 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-red no-user-select" title="<?php echo gravity_last_update(); ?>">
-            <div class="inner">
-                <p>Domains on Adlists</p>
-                <h3 class="statistic"><span id="domains_being_blocked">---</span></h3>
+        <a href="queries.php">
+            <div class="small-box bg-yellow no-user-select">
+                <div class="inner">
+                    <p>Percentage Blocked</p>
+                    <h3 class="statistic"><span id="percentage_blocked_today">---</span></h3>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
             </div>
-            <div class="icon">
-                <i class="fas fa-list-alt"></i>
+        </a>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-2 col-xs-6">
+        <!-- small box -->
+        <a href="network.php">
+            <div class="small-box bg-purple no-user-select">
+                <div class="inner">
+                    <p>Clients</p>
+                    <h3 class="statistic"><span id="unique_clients">---</span></h3>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
             </div>
-        </div>
+        </a>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-2 col-xs-6">
+        <!-- small box -->
+        <a href="gravity.php">
+            <div class="small-box bg-aqua no-user-select" title="<?php echo gravity_last_update(); ?>">
+                <div class="inner">
+                    <p>Domains</p>
+                    <h3 class="statistic"><span id="domains_being_blocked">---</span></h3>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-list-alt"></i>
+                </div>
+            </div>
+        </a>
     </div>
     <!-- ./col -->
 </div>
